@@ -6,6 +6,8 @@ import { openTeamManageWindow } from "./teamManageWindow.js";
 import { openEnhanceWindow } from "./enhanceWindow.js";
 import { openGemsWindow } from "./gemsWindow.js";
 
+let _tooltipCtx = null;
+
 export function openTeamWindow() {
   const modal = openModal({
     title: "Информация",
@@ -104,7 +106,7 @@ function render(s) {
 
             <div class="tw2-power">
               <div class="tw2-powerLabel">Мощь</div>
-              <div class="tw2-powerVal">${fmtStat(s.stats[selectedId]?.power ?? 0)}</div>
+              <div class="tw2-powerVal">${(s.stats[selectedId]?.power ?? 0)}</div>
             </div>
 
             <div class="tw2-centerActions">
@@ -259,7 +261,7 @@ function slotBoxRing(label, item, key, group, pos, targetKey = null) {
         ${item ? `
           <div class="tw2-itemBadge tw2-r-${esc(item.rarity || "common")}"
                data-equip-slot="${key}" data-equip-group="${group}">
-            <div class="tw2-itemName" title="${esc(item.name || item.tplId || "")}">${esc(item.name || item.tplId || "")}</div>
+            <div class="tw2-itemName">${esc(item.name || item.tplId || "")}</div>
           </div>
         ` : `<div class="tw2-empty"></div>`}
       </div>
@@ -271,14 +273,9 @@ function miniStat(k, v) {
   return `
     <div class="tw2-statRow">
       <div class="tw2-statK">${k}</div>
-      <div class="tw2-statV">${fmtStat(v ?? 0)}</div>
+      <div class="tw2-statV">${v ?? 0}</div>
     </div>
   `;
-}
-
-function fmtStat(v) {
-  const n = Number(v);
-  return Number.isFinite(n) ? String(Math.ceil(n)) : String(v ?? 0);
 }
 
 /* ---------- Inventory rendering helpers ---------- */
@@ -322,8 +319,7 @@ function itemCell(it) {
     <div class="tw2-cell tw2-itemCell ${badge}"
          data-item-id="${esc(it.id)}"
          data-item-type="${esc(it.type)}"
-         data-item-tab="${esc(it.type === "jewelry" ? "jewelry" : (isClothesType(it.type) ? "clothes" : "items"))}"
-         title="${esc(it.name || it.tplId || "Предмет")}">
+         data-item-tab="${esc(it.type === "jewelry" ? "jewelry" : (isClothesType(it.type) ? "clothes" : "items"))}">
       <div class="tw2-cellName">${esc(it.name)}</div>
       ${qty > 1 ? `<div class="tw2-cellQty">${qty}</div>` : ``}
     </div>
@@ -516,7 +512,8 @@ function bind() {
       tooltip.style.display = "block";
       tooltip.style.left = (e.clientX + 16) + "px";
       tooltip.style.top = (e.clientY + 16) + "px";
-      tooltip.innerHTML = renderTooltip(it);
+       _tooltipCtx = buildTooltipCtx(state, state.team.selectedHeroId || "hero_main");
+      tooltip.innerHTML = renderTooltip(it, _tooltipCtx);
     });
 
     cell.addEventListener("mouseleave", () => {
@@ -615,7 +612,8 @@ function bind() {
       tooltip.style.display = "block";
       tooltip.style.left = (e.clientX + 16) + "px";
       tooltip.style.top = (e.clientY + 16) + "px";
-      tooltip.innerHTML = renderTooltip(it);
+       _tooltipCtx = buildTooltipCtx(state, state.team.selectedHeroId || "hero_main");
+      tooltip.innerHTML = renderTooltip(it, _tooltipCtx);
     });
 
     el.addEventListener("mouseleave", () => {
@@ -845,149 +843,158 @@ function renderRankGrowthTooltip(hero) {
   `;
 }
 
-function renderTooltip(it) {
+
+function buildTooltipCtx(s, heroId) {
+  const cat = s?.team?.catalogMap || {};
+  const eqWrap = getEquippedForHero(s, heroId || s?.team?.selectedHeroId || "hero_main");
+  const eq = { ...(eqWrap?.clothes || {}), ...(eqWrap?.jewelry || {}) };
+  return { cat, eq };
+}
+
+function detectSetName(item, tpl) {
+  const fromSetId = String(tpl?.setId || item?.setId || "").trim();
+  if (fromSetId) return fromSetId;
+  const s = String(tpl?.name || item?.name || "").trim();
+  const idx = s.indexOf(":");
+  return idx > 0 ? s.slice(0, idx).trim().toLowerCase() : "";
+}
+
+function setDisplayName(setKey) {
+  const map = { akatsuki: "Акацуки", angel: "Ангел", ice: "Ледовый", abyss: "Бездна" };
+  return map[String(setKey||"").toLowerCase()] || String(setKey || "");
+}
+
+function statText(obj = {}) {
+  const labels = {
+    spirit: "Сила духа", chakra: "Чакра", might: "Сила", agility: "Ловкость",
+    hp: "Жизнь", physAtk: "Физ. атака", physDef: "Физ. защита", stratAtk: "Стратег. атака", stratDef: "Стратег. защита", speed: "Скорость",
+    damageRate: "Рейтинг атаки", avoidDamageRate: "Рейтинг защиты", punchRate: "Крит. урон", critDamageRate: "Крит. урон", enemyDefDownRate: "Снижение защиты врага", enemyAtkDownRate: "Снижение атаки врага"
+  };
+  return Object.entries(obj).map(([k,v]) => `${labels[k] || k} +${Number(v)||0}${String(k).toLowerCase().includes('rate') || k.startsWith('enemy') ? '%' : ''}`).join(', ');
+}
+
+function getSetBonusMap() {
+  return {
+    akatsuki: {
+      2: { secondary: { damageRate: 8 } },
+      4: { main: { agility: 1000 }, secondary: { avoidDamageRate: 6 } },
+      6: { secondary: { punchRate: 8 } }
+    },
+    angel: {
+      2: { secondary: { avoidDamageRate: 15 } },
+      4: { main: { agility: 2000 }, secondary: { damageRate: 10 } },
+      6: { secondary: { punchRate: 10 }, primary: { hp: 5000 } }
+    },
+    ice: {
+      2: { main: { agility: 2000 }, secondary: { damageRate: 10 } },
+      4: { primary: { hp: 5000 }, secondary: { enemyDefDownRate: 20 } },
+      6: { secondary: { critDamageRate: 20, avoidDamageRate: 15 } }
+    },
+    abyss: {
+      2: { main: { agility: 2000 }, secondary: { avoidDamageRate: 15 } },
+      4: { main: { agility: 2000 }, secondary: { enemyAtkDownRate: 20 } },
+      6: { main: { agility: 3000 }, secondary: { damageRate: 20 } }
+    }
+  };
+}
+
+function normalizeTooltipGemSlots(item) {
+  const arr = Array.isArray(item?.gemSlots) ? item.gemSlots : [];
+  if (arr.length) {
+    const normalized = arr.slice(0,8).map((slot, i) => {
+      if (slot && typeof slot === 'object' && ('open' in slot || 'gem' in slot)) {
+        return { open: !!slot.open, gem: slot.gem || null };
+      }
+      if (slot && typeof slot === 'object' && slot.tplId) {
+        return { open: true, gem: slot };
+      }
+      if (typeof slot === 'string') {
+        return { open: true, gem: { tplId: slot } };
+      }
+      return { open: i < 6, gem: null };
+    });
+    while (normalized.length < 8) normalized.push({ open: normalized.length < 6, gem: null });
+    for (let i=0;i<6;i++) normalized[i].open = true;
+    return normalized;
+  }
+  const direct = Number(item?.socketSlots);
+  const extra = Number.isFinite(direct) ? Math.max(0, Math.min(2, Math.floor(direct))) : 0;
+  return Array.from({ length: 8 }, (_, i) => ({ open: i < (6 + extra), gem: null }));
+}
+
+
+function renderTooltip(it, ctx = _tooltipCtx || {}) {
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
 
-  // Catalog may be a map (tplId -> tpl) OR an array [{tplId,...}]
-  const rawCat = _tooltipCtx?.cat || {};
+  const rawCat = ctx?.cat || {};
   const cat = Array.isArray(rawCat)
     ? rawCat.reduce((acc, x) => (x && x.tplId ? (acc[String(x.tplId)] = x, acc) : acc), {})
     : rawCat;
 
   const tpl = cat[String(it.tplId || "")] || it || {};
-
-  // Title shows "Имя +заточка"
   const enh = Number(it.enhanceLevel ?? it.enh ?? tpl.enhanceLevel ?? 0) || 0;
   const title = `${tpl.name || it.name || "Предмет"}${enh > 0 ? ` +${enh}` : ""}`;
-
-  // Required level / sell
   const req = Number(tpl.reqLevel ?? tpl.requiredLevel ?? it.reqLevel ?? it.requiredLevel ?? 1) || 1;
   const sell = Number(tpl.sell ?? it.sell ?? 0) || 0;
-
-  // Determine main stat by slot (weapon->stratAtk, armor/head/cloak/belt/shoes->stratDef by default)
   const slot = String(it.slot || tpl.slot || "");
   const slotMainKey = (() => {
     if (slot === "weapon") return "stratAtk";
-    if (slot === "armor" || slot === "head" || slot === "cloak" || slot === "belt" || slot === "shoes") return "stratDef";
+    if (["armor","head","cloak","belt","shoes"].includes(slot)) return "stratDef";
     return null;
   })();
-
-  const LABEL = {
-    stratAtk: "Стратег. атака",
-    stratDef: "Стратег. защита",
-    physAtk: "Физ. атака",
-    physDef: "Физ. защита",
-    hp: "Жизнь",
-    speed: "Скорость",
-  };
+  const LABEL = { stratAtk:"Стратег. атака", stratDef:"Стратег. защита", physAtk:"Физ. атака", physDef:"Физ. защита", hp:"Жизнь", speed:"Скорость" };
   const statLabel = (k) => LABEL[k] || k;
-
-  // Read current main stat value from item stats (already includes some bonuses)
   const stats = it.stats || tpl.stats || {};
   const mainNow = slotMainKey ? Number(stats[slotMainKey] ?? 0) : 0;
-
-  // "Усиление/заточка" bonus is +0.3% per level (already used elsewhere in project)
   const enhRate = 0.003;
-  const baseNoEnh = (slotMainKey && mainNow > 0 && enh > 0)
-    ? Math.round(mainNow / (1 + enh * enhRate))
-    : mainNow;
-
-  const enhAdd = (slotMainKey && enh > 0)
-    ? Math.max(0, Math.round(baseNoEnh * enh * enhRate))
-    : 0;
-
-  const baseLine = slotMainKey
-    ? `<div class="tw2-tipLine"><b>${esc(statLabel(slotMainKey))}</b> ${baseNoEnh}${enh > 0 ? ` <span style="color:rgba(180,255,200,.9)">( +${enhAdd} )</span>` : ""}</div>`
-    : "";
-
-  // "Усилить вещь" (separate upgrade) info
-  const upLvl = Number(it.upgradeLevel ?? it.upLvl ?? 0) || 0; // +1..+20
-  const upRate = 0.03; // 3% per level
-  const upAdd = (slotMainKey && upLvl > 0)
-    ? Math.max(0, Math.round(baseNoEnh * upLvl * upRate))
-    : 0;
-
+  const baseNoEnh = (slotMainKey && mainNow > 0 && enh > 0) ? Math.round(mainNow / (1 + enh * enhRate)) : mainNow;
+  const enhAdd = (slotMainKey && enh > 0) ? Math.max(0, Math.round(baseNoEnh * enh * enhRate)) : 0;
+  const baseLine = slotMainKey ? `<div class="tw2-tipLine"><b>${esc(statLabel(slotMainKey))}</b> ${baseNoEnh}${enh > 0 ? ` <span style="color:rgba(180,255,200,.9)">( +${enhAdd} )</span>` : ""}</div>` : "";
+  const upLvl = Number(it.upgradeLevel ?? it.upLvl ?? 0) || 0;
+  const upRate = 0.03;
+  const upAdd = (slotMainKey && upLvl > 0) ? Math.max(0, Math.round(baseNoEnh * upLvl * upRate)) : 0;
   const enhLine = `<div class="tw2-tipLine">Усиление: <b>+${enh}</b>${enh > 0 ? ` <span style="color:rgba(180,255,200,.9)">( +${enhAdd} )</span>` : ""}</div>`;
   const upLine = `<div class="tw2-tipLine">Усилить вещь: <b>+${upLvl}</b>${upLvl > 0 ? ` <span style="color:rgba(180,255,200,.9)">( +${upAdd} )</span>` : ""}</div>`;
 
-  // Gems: show 8 slots (6 open + 2 locked). Use inserted list from item.gems (array) or gemSlots (object)
-  const gemSlots = (() => {
-    if (Array.isArray(it.gems)) return it.gems;
-    if (Array.isArray(it.gemSlots)) return it.gemSlots;
-    if (it.gems && typeof it.gems === "object") return Object.values(it.gems);
-    return [];
-  })();
+  const gemSlots = normalizeTooltipGemSlots(it);
+  const openCount = gemSlots.filter(x => x && x.open).length;
+  const filledLines = gemSlots.filter(x => x && x.open && x.gem).map((slotObj) => {
+    const gref = typeof slotObj.gem === 'string' ? { tplId: slotObj.gem } : slotObj.gem;
+    const gtpl = cat[String(gref?.tplId || "")] || gref || {};
+    const target = String(gtpl.gemTarget || gref?.gemTarget || "");
+    const lvl = Number(gtpl.gemLevel ?? gref?.gemLevel ?? 0) || "";
+    const pct = Number(gtpl.gemPct ?? gref?.gemPct ?? 0) || 0;
+    const gemName = String(gtpl.name || gref?.name || target || "Самоцвет").replace(/^Самоцвет:\s*/i, "");
+    return `<div class="tw2-tipLine">• ${esc(gemName)}${lvl ? ` ${lvl}` : ""}${pct ? ` <span style="color:rgba(180,255,200,.9)">+${pct}%</span>` : ""}</div>`;
+  });
+  const gemBlock = `<div class="tw2-tipLine" style="margin-top:8px;">Самоцветы: <b>${filledLines.length}/${openCount}</b>${filledLines.length ? `<div style="margin-top:4px">${filledLines.join("")}</div>` : `<div style="margin-top:4px;color:rgba(255,255,255,.55)">нет вставленных самоцветов</div>`}</div>`;
 
-  const toGemLine = (g) => {
-    if (!g) return null;
-    const tpl = cat[String(g.tplId || "")] || g || {};
-    const target = String(tpl.gemTarget || g.gemTarget || "");
-    const lvl = tpl.gemLevel ?? g.gemLevel;
-    const pct = tpl.gemPct ?? g.gemPct;
-    if (!target) return null;
-    return `${esc(tpl.name ? tpl.name.replace(/^Самоцвет:\s*/i,"") : statLabel(target))} ${lvl ?? ""} <span style="color:rgba(180,255,200,.9)">${pct != null ? `${Number(pct)}%` : ""}</span>`;
-  };
-
-  const filled = gemSlots.map(toGemLine).filter(Boolean);
-  const lockedCount = Number(it.gemLocked ?? it.gemLockedSlots ?? 0) || 0; // if exists
-  const totalSlots = 8;
-  const openSlots = Math.max(0, totalSlots - lockedCount);
-  const emptyCount = Math.max(0, openSlots - filled.length);
-
-  const gemList = [
-    ...filled,
-    ...Array.from({ length: emptyCount }, () => `<span style="color:rgba(255,255,255,.55)">не вставлено</span>`),
-    ...Array.from({ length: lockedCount }, () => `<span style="color:rgba(255,255,255,.35)">закрыто</span>`),
-  ];
-
-  const gemBlock = `<div class="tw2-tipLine" style="margin-top:8px;">
-    Самоцветы: <b>${Math.min(filled.length, openSlots)}/${totalSlots}</b><br>
-    ${gemList.slice(0, totalSlots).join("<br>")}
-  </div>`;
-
-  // Set detection: use prefix before ":" (e.g., "Акацуки: Нагрудник") for 6-piece sets
-  const detectSet = (name) => {
-    const s = String(name || "").trim();
-    const idx = s.indexOf(":");
-    if (idx <= 0) return "";
-    return s.slice(0, idx).trim();
-  };
-  const setName = detectSet(tpl.name || it.name);
-  const setKey = setName.toLowerCase();
-
-  const SET_BONUS_TEXT = {
-    "акацуки": {
-      2: "Урон +8%",
-      4: "Сопротивление урону +6%",
-      6: "Крит. урон +8% (и доп. бонус)",
-    },
-    "бездна": {
-      2: "Бонус (2 части)",
-      4: "Бонус (4 части)",
-      6: "Бонус (6 частей)",
-    }
-  };
-
+  const setKey = detectSetName(it, tpl);
   let setBlock = "";
-  if (setName) {
-    const eq = _tooltipCtx?.eq || {};
+  if (setKey) {
+    const eq = ctx?.eq || {};
     const pieces = Object.values(eq).filter(Boolean);
-    const cnt = pieces.reduce((acc, x) => acc + (detectSet(x.name) === setName ? 1 : 0), 0);
-
-    const tiers = [2, 4, 6].map((t) => {
-      const active = cnt >= t;
-      const c = active ? "rgba(235,245,255,.92)" : "rgba(255,255,255,.35)";
-      const txt = (SET_BONUS_TEXT[setKey] && SET_BONUS_TEXT[setKey][t]) ? SET_BONUS_TEXT[setKey][t] : "—";
-      return `<div style="margin-top:4px;color:${c}">${t} части: ${esc(txt)}</div>`;
-    }).join("");
-
-    setBlock = `<div class="tw2-tipLine" style="margin-top:10px;">Бонус сета <b>${esc(setName)}</b> (${cnt}/6):${tiers}</div>`;
+    const cnt = pieces.reduce((acc, x) => {
+      const xtpl = cat[String(x.tplId || "")] || x || {};
+      return acc + (detectSetName(x, xtpl) === setKey ? 1 : 0);
+    }, 0);
+    const defs = getSetBonusMap()[String(setKey).toLowerCase()] || {};
+    const tiers = [2,4,6].map((t) => {
+      const def = defs[t] || {};
+      const parts = [];
+      if (def.main) parts.push(statText(def.main));
+      if (def.primary) parts.push(statText(def.primary));
+      if (def.secondary) parts.push(statText(def.secondary));
+      const txt = parts.filter(Boolean).join(', ') || '—';
+      const color = cnt >= t ? 'rgba(235,245,255,.92)' : 'rgba(255,255,255,.35)';
+      return `<div style="margin-top:4px;color:${color}">${t} части: ${esc(txt)}</div>`;
+    }).join('');
+    setBlock = `<div class="tw2-tipLine" style="margin-top:10px;">Бонус сета <b>${esc(setDisplayName(setKey))}</b> (${cnt}/6):${tiers}</div>`;
   }
 
   const desc = tpl.desc ? `<div class="tw2-tipDesc">${esc(tpl.desc)}</div>` : (it.desc ? `<div class="tw2-tipDesc">${esc(it.desc)}</div>` : "");
-
   return `
     <div class="tw2-tipTitle tw2-r-${esc(it.rarity || tpl.rarity || "common")}">${esc(title)}</div>
     <div class="tw2-tipLine">Требуемый уровень: <b>${req}</b></div>

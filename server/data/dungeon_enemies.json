@@ -1,0 +1,23 @@
+{
+  "forest_bandits": [
+    { "id": "fb1", "name": "Бандит-щит", "level": 10, "hp": 1200, "atk": 110, "def": 55, "speed": 80 },
+    { "id": "fb2", "name": "Бандит-клинок", "level": 10, "hp": 1000, "atk": 125, "def": 45, "speed": 95 },
+    { "id": "fb3", "name": "Бандит-лучник", "level": 10, "hp": 900, "atk": 130, "def": 40, "speed": 100 },
+    { "id": "fb4", "name": "Бандит-шаман", "level": 10, "hp": 950, "atk": 120, "def": 42, "speed": 90 },
+    { "id": "fb5", "name": "Ватажок", "level": 10, "hp": 1500, "atk": 145, "def": 60, "speed": 88, "initialFury": 100 }
+  ],
+  "cave_ninjas": [
+    { "id": "cn1", "name": "Ніндзя-щит", "level": 18, "hp": 1700, "atk": 155, "def": 75, "speed": 110 },
+    { "id": "cn2", "name": "Ніндзя-штурм", "level": 18, "hp": 1450, "atk": 175, "def": 65, "speed": 125 },
+    { "id": "cn3", "name": "Ніндзя-тінь", "level": 18, "hp": 1400, "atk": 180, "def": 62, "speed": 130 },
+    { "id": "cn4", "name": "Ніндзя-контроль", "level": 18, "hp": 1380, "atk": 168, "def": 60, "speed": 118 },
+    { "id": "cn5", "name": "Капітан печери", "level": 18, "hp": 2200, "atk": 210, "def": 85, "speed": 120, "initialFury": 100 }
+  ],
+  "akatsuki_outpost": [
+    { "id": "ao1", "name": "Вартовий Акацукі", "level": 28, "hp": 2500, "atk": 240, "def": 105, "speed": 150 },
+    { "id": "ao2", "name": "Штурмовик Акацукі", "level": 28, "hp": 2200, "atk": 265, "def": 92, "speed": 165 },
+    { "id": "ao3", "name": "Підривник Акацукі", "level": 28, "hp": 2100, "atk": 275, "def": 88, "speed": 172 },
+    { "id": "ao4", "name": "Містик Акацукі", "level": 28, "hp": 2150, "atk": 260, "def": 90, "speed": 160 },
+    { "id": "ao5", "name": "Командир Акацукі", "level": 28, "hp": 3200, "atk": 320, "def": 120, "speed": 170, "initialFury": 100 }
+  ]
+}

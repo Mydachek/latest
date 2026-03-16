@@ -1,20 +1,26 @@
-{
-  "dungeons": [
-    {
-      "id": "forest_edge",
-      "name": "Окраїна лісу",
-      "level": 1,
-      "energyCost": 1,
-      "rewardSilver": 500,
-      "description": "Перший тестовий данж для карти."
-    },
-    {
-      "id": "broken_bridge",
-      "name": "Зруйнований міст",
-      "level": 15,
-      "energyCost": 1,
-      "rewardSilver": 900,
-      "description": "Другий тестовий данж. PvE-бій буде підключений наступним патчем."
-    }
-  ]
-}
+[
+  {
+    "id": "forest_bandits",
+    "name": "Ліс бандитів",
+    "level": 10,
+    "energyCost": 1,
+    "enemyPackId": "forest_bandits",
+    "rewards": { "silver": 1200, "awakenedPoints": 10 }
+  },
+  {
+    "id": "cave_ninjas",
+    "name": "Печера ніндзя",
+    "level": 18,
+    "energyCost": 1,
+    "enemyPackId": "cave_ninjas",
+    "rewards": { "silver": 1800, "awakenedPoints": 15 }
+  },
+  {
+    "id": "akatsuki_outpost",
+    "name": "Табір Акацукі",
+    "level": 28,
+    "energyCost": 1,
+    "enemyPackId": "akatsuki_outpost",
+    "rewards": { "silver": 2600, "awakenedPoints": 20 }
+  }
+]

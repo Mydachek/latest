@@ -369,7 +369,7 @@ function renderSocket({ hero, heroes, inv, eq, cat, tabBar }) {
   const slot = ENH_SLOTS.includes(_ui.slot) ? _ui.slot : "weapon";
   const item = eq?.[slot] || null;
   const sockets = getSocketCount(item);
-  const maxSockets = 3;
+  const maxSockets = 8;
 
   const counts = materialCounts(inv);
   const needTool = 1;
@@ -407,7 +407,7 @@ function renderSocket({ hero, heroes, inv, eq, cat, tabBar }) {
               const it = eq?.[sk] || null;
               const t = it?.tplId ? cat[it.tplId] : null;
               const name = it?.name || t?.name || sk;
-              const sN = getSocketCount(it);
+              const sN = Math.max(0, Number(it?.gemSlots || it?.socketSlots || 0));
               return `
                 <button class="enh-item ${sk === slot ? "is-active" : ""}" data-slot="${sk}">
                   <div class="enh-itemIcon"></div>
@@ -427,7 +427,7 @@ function renderSocket({ hero, heroes, inv, eq, cat, tabBar }) {
             <div class="enh-row2"><span>Слоты</span><b>${sockets}/${maxSockets}</b></div>
             <div class="enh-row2"><span>Нужно</span><b>${escapeHtml(cat.tool_socket?.name || "tool_socket")} x${needTool} + ${escapeHtml(cat.mat_base?.name || "mat_base")} x${needBase}</b></div>
             <button class="enh-mainBtn" data-socket ${can ? "" : "disabled"} style="margin-top:10px;">Открыть слот</button>
-            <div class="muted" style="margin-top:6px;">Открывает 1 слот (максимум 3). Материалы тратятся.</div>
+            <div class="muted" style="margin-top:6px;">Открывает 1 из 2 закрытых слотов. Базово открыто 6 слотов, максимум 8. Материалы тратятся.</div>
           </div>
         </div>
 
@@ -807,8 +807,14 @@ function escapeHtml(str) {
 
 
 function getSocketCount(item) {
-  if (!item || typeof item !== "object") return 0;
-  const n = Number(item.socketSlots);
-  if (Number.isFinite(n) && n >= 0) return Math.max(0, Math.min(3, Math.floor(n)));
-  return 0;
+  if (!item || typeof item !== "object") return 6;
+  if (Array.isArray(item.gemSlots)) {
+    const openCount = item.gemSlots.filter((x) => x && x.open).length;
+    return Math.max(0, Math.min(8, Math.floor(openCount)));
+  }
+  const direct = Number(item.socketSlots);
+  if (Number.isFinite(direct) && direct >= 0) {
+    return Math.max(6, Math.min(8, 6 + Math.floor(direct)));
+  }
+  return 6;
 }

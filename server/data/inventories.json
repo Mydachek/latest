@@ -213,7 +213,7 @@
             "desc": "Потрібен для відкриття слоту самоцвіта (Проточка).",
             "tplId": "tool_socket",
             "icon": null,
-            "qty": 999,
+            "qty": 997,
             "maxStack": 9999,
             "rarity": "B"
           },
@@ -225,7 +225,7 @@
             "desc": "Потрібен для крафта будь-якої екіпіровки.",
             "tplId": "mat_base",
             "icon": null,
-            "qty": 979,
+            "qty": 975,
             "maxStack": 9999,
             "rarity": "C"
           },
@@ -342,16 +342,17 @@
                   "gem": null
                 },
                 {
-                  "open": false,
+                  "open": true,
                   "gem": null
                 },
                 {
-                  "open": false,
+                  "open": true,
                   "gem": null
                 }
               ],
               "enhanceLevel": 5,
-              "upgradeLevel": 30
+              "upgradeLevel": 30,
+              "socketSlots": 2
             },
             "armor": {
               "id": "itm_3c957f80b8e97819cac500ec6",

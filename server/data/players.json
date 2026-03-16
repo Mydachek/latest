@@ -9,6 +9,8 @@
       "exp": 95954080,
       "vip": 0,
       "svip": 0,
+      "energy": 7,
+      "energyMax": 10,
       "isAdminHidden": true,
       "serverId": "Hokage S246",
       "currency": {
@@ -20,8 +22,8 @@
       "silver": 99999917993,
       "gold": 99970,
       "coupons": 99905,
-      "lastOnlineAt": 1773689855633,
-      "onlineSeconds": 8213,
+      "lastOnlineAt": 1773701846621,
+      "onlineSeconds": 19955,
       "skillBook": {
         "currentPageId": "void",
         "skillPoints": 15608650,
