@@ -368,7 +368,7 @@ function renderCraft({ hero, heroes, inv, eq, cat, tabBar }) {
 function renderSocket({ hero, heroes, inv, eq, cat, tabBar }) {
   const slot = ENH_SLOTS.includes(_ui.slot) ? _ui.slot : "weapon";
   const item = eq?.[slot] || null;
-  const sockets = Math.max(0, Number(item?.gemSlots || item?.socketSlots || 0));
+  const sockets = getSocketCount(item);
   const maxSockets = 3;
 
   const counts = materialCounts(inv);
@@ -407,7 +407,7 @@ function renderSocket({ hero, heroes, inv, eq, cat, tabBar }) {
               const it = eq?.[sk] || null;
               const t = it?.tplId ? cat[it.tplId] : null;
               const name = it?.name || t?.name || sk;
-              const sN = Math.max(0, Number(it?.gemSlots || it?.socketSlots || 0));
+              const sN = getSocketCount(it);
               return `
                 <button class="enh-item ${sk === slot ? "is-active" : ""}" data-slot="${sk}">
                   <div class="enh-itemIcon"></div>
@@ -803,4 +803,12 @@ function escapeHtml(str) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+
+function getSocketCount(item) {
+  if (!item || typeof item !== "object") return 0;
+  const n = Number(item.socketSlots);
+  if (Number.isFinite(n) && n >= 0) return Math.max(0, Math.min(3, Math.floor(n)));
+  return 0;
 }

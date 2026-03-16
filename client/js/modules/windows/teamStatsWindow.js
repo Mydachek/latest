@@ -95,5 +95,5 @@ function label(k) {
 function val(v){
   if (v == null || v === "") return "0";
   const n = Number(v);
-  return Number.isFinite(n) ? String(Math.round(n)) : String(v);
+  return Number.isFinite(n) ? String(Math.ceil(n)) : String(v);
 }

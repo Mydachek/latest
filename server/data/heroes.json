@@ -147,8 +147,8 @@
         "def": 1.05
       },
       "growth": {
-        "spirit": 4.0,
-        "might": 3.0,
+        "spirit": 4,
+        "might": 3,
         "agility": 3.4,
         "hp": 3.6,
         "chakra": 2.4
@@ -285,11 +285,11 @@
         "def": 1.2
       },
       "growth": {
-        "spirit": 5.0,
+        "spirit": 5,
         "might": 4.5,
         "agility": 4.8,
-        "hp": 5.0,
-        "chakra": 3.0
+        "hp": 5,
+        "chakra": 3
       },
       "auras": [
         {
@@ -355,9 +355,9 @@
       },
       "growth": {
         "spirit": 3.6,
-        "might": 4.0,
-        "agility": 4.0,
-        "hp": 4.0,
+        "might": 4,
+        "agility": 4,
+        "hp": 4,
         "chakra": 3.6
       },
       "auras": [
@@ -415,7 +415,7 @@
       "templateId": "itachi_reanimated_sss",
       "name": "Воскрешенный Итачи",
       "isMain": false,
-      "level": 1,
+      "level": 34,
       "rarity": "SSS",
       "role": "assault",
       "classType": "ninjutsu",
@@ -424,11 +424,11 @@
         "def": 1.2
       },
       "growth": {
-        "spirit": 5.0,
+        "spirit": 5,
         "might": 4.3,
         "agility": 4.5,
         "hp": 5.8,
-        "chakra": 5.0
+        "chakra": 5
       },
       "auras": [
         {
@@ -484,7 +484,8 @@
           }
         }
       ],
-      "createdAt": "2026-03-01T18:26:18.647Z"
+      "createdAt": "2026-03-01T18:26:18.647Z",
+      "exp": 75925
     }
   ]
 }

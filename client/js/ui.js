@@ -264,10 +264,16 @@ function bindActions() {
     }
 
     if (action === "map") {
-      openModal({
-        title: "Карта",
-        contentHtml: `<div class="badge">Поки заглушка. Тут буде карта/локації.</div>`,
-      });
+      try {
+        const mod = await import("./modules/windows/mapWindow.js");
+        if (mod?.openMapWindow) mod.openMapWindow();
+        else throw new Error("openMapWindow not found");
+      } catch (err) {
+        openModal({
+          title: "Карта",
+          contentHtml: `<div class="badge">Не вдалося відкрити карту</div><div class="badge" style="margin-top:10px">${escapeHtml(String(err?.message || err))}</div>`,
+        });
+      }
       return;
     }
 

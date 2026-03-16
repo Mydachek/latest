@@ -11,7 +11,7 @@
             "name": "Сувій досвіду",
             "desc": "",
             "tplId": "itm_exp_scroll_basic",
-            "qty": 899,
+            "qty": 897,
             "maxStack": 999,
             "effects": {
               "exp": 100,
@@ -41,7 +41,7 @@
             "name": "Елітний сувій",
             "desc": "",
             "tplId": "itm_exp_scroll_elite",
-            "qty": 999,
+            "qty": 963,
             "maxStack": 999,
             "effects": {
               "exp": 10000,
@@ -140,31 +140,6 @@
             "rarity": "A"
           },
           {
-            "id": "itm_efc575276bdc719cac4fa59b",
-            "type": "consumable",
-            "slot": null,
-            "name": "Ящик сета: Ледовый",
-            "desc": "Сет брони Ледовый. 2ч: Ловкость +2000, рейтинг урона +10%. 4ч: Снижает защиту врага на 20%, жизнь +5000. 6ч: Крит. урон +20%, рейтинг защиты +15%.",
-            "tplId": "box_set_ice",
-            "icon": "box_ice.png",
-            "qty": 1,
-            "maxStack": 999,
-            "effects": {
-              "openSet": "ice"
-            },
-            "rarity": "A"
-          },
-          {
-            "id": "itm_eebcbe9c9968a19cac500ec6",
-            "type": "equipment",
-            "slot": "weapon",
-            "name": "Акацукі: Кунай",
-            "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
-            "tplId": "set_akatsuki_kunai",
-            "icon": null,
-            "rarity": "A"
-          },
-          {
             "id": "itm_b3d01624b3af8819cac500ec6",
             "type": "equipment",
             "slot": "weapon",
@@ -226,7 +201,7 @@
             "desc": "Витрачається при поліпшенні екіпіровки у вкладці 'Усилить вещь'.",
             "tplId": "stone_rainbow",
             "icon": null,
-            "qty": 969,
+            "qty": 961,
             "maxStack": 9999,
             "rarity": "A"
           },
@@ -297,6 +272,26 @@
             "tplId": "set_akatsuki_kunai",
             "icon": null,
             "rarity": "A"
+          },
+          {
+            "id": "itm_79f9c3c95303619cf8134382",
+            "type": "equipment",
+            "slot": "weapon",
+            "name": "Ледовый: Сюрікен",
+            "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+            "tplId": "set_ice_shuriken",
+            "icon": null,
+            "rarity": "A"
+          },
+          {
+            "id": "itm_4859c1548cdcb19cf8134382",
+            "type": "equipment",
+            "slot": "weapon",
+            "name": "Ледовый: Сувій",
+            "desc": " (Оружие: свиток, только ниндзюцу)",
+            "tplId": "set_ice_scroll",
+            "icon": null,
+            "rarity": "A"
           }
         ],
         "capacity": 44,
@@ -355,7 +350,7 @@
                   "gem": null
                 }
               ],
-              "enhanceLevel": 0,
+              "enhanceLevel": 5,
               "upgradeLevel": 30
             },
             "armor": {
@@ -411,7 +406,8 @@
                   "gem": null
                 }
               ],
-              "enhanceLevel": 34
+              "enhanceLevel": 34,
+              "upgradeLevel": 8
             },
             "jewelry": null,
             "head": {
@@ -1057,13 +1053,331 @@
             }
           },
           "h_eea2c03add7a2819caaa69788": {
-            "weapon": null,
-            "armor": null,
+            "weapon": {
+              "id": "itm_9be61dd72ba8c819cf8134382",
+              "type": "equipment",
+              "slot": "weapon",
+              "name": "Ледовый: Кунай",
+              "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+              "tplId": "set_ice_kunai",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "armor": {
+              "id": "itm_4baa64086fb1f819cf8134382",
+              "type": "equipment",
+              "slot": "armor",
+              "name": "Ледовый: Нагрудник",
+              "desc": "Часть сета Ледовый.",
+              "tplId": "set_ice_armor",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
             "jewelry": null,
+            "head": {
+              "id": "itm_07c45a6cc880619cf8134382",
+              "type": "equipment",
+              "slot": "head",
+              "name": "Ледовый: Шолом",
+              "desc": "Часть сета Ледовый.",
+              "tplId": "set_ice_helm",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "cloak": {
+              "id": "itm_627d5c5c26883819cf8134382",
+              "type": "equipment",
+              "slot": "cloak",
+              "name": "Ледовый: Плащ",
+              "desc": "Часть сета Ледовый.",
+              "tplId": "set_ice_cloak",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "belt": {
+              "id": "itm_ac5b3dd14ae3c819cf8134382",
+              "type": "equipment",
+              "slot": "belt",
+              "name": "Ледовый: Пояс",
+              "desc": "Часть сета Ледовый.",
+              "tplId": "set_ice_belt",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "shoes": {
+              "id": "itm_2683321ea83d719cf8134382",
+              "type": "equipment",
+              "slot": "shoes",
+              "name": "Ледовый: Ботинки",
+              "desc": "Часть сета Ледовый.",
+              "tplId": "set_ice_boots",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "j1": null,
+            "j2": null,
+            "j3": null,
+            "j4": null,
+            "j5": null,
+            "j6": null,
+            "j7": null,
+            "j8": null
+          },
+          "h_285dbe093934819caaa6b797": {
+            "weapon": {
+              "id": "itm_eebcbe9c9968a19cac500ec6",
+              "type": "equipment",
+              "slot": "weapon",
+              "name": "Акацукі: Кунай",
+              "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+              "tplId": "set_akatsuki_kunai",
+              "icon": null,
+              "rarity": "A",
+              "gemSlots": [
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": true,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                },
+                {
+                  "open": false,
+                  "gem": null
+                }
+              ]
+            },
+            "armor": null,
             "head": null,
             "cloak": null,
             "belt": null,
             "shoes": null,
+            "jewelry": null,
             "j1": null,
             "j2": null,
             "j3": null,

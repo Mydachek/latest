@@ -12,16 +12,16 @@
       "isAdminHidden": true,
       "serverId": "Hokage S246",
       "currency": {
-        "silver": 99999923742,
+        "silver": 99999917993,
         "gold": 99970,
         "coupons": 99905
       },
       "createdAt": 1772389464640,
-      "silver": 99999923742,
+      "silver": 99999917993,
       "gold": 99970,
       "coupons": 99905,
-      "lastOnlineAt": 1773660656245,
-      "onlineSeconds": 6196,
+      "lastOnlineAt": 1773689855633,
+      "onlineSeconds": 8213,
       "skillBook": {
         "currentPageId": "void",
         "skillPoints": 15608650,

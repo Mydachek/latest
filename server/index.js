@@ -4,6 +4,7 @@ require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
 const express = require("express");
+const dungeonsRoute = require("./routes/dungeons");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -4314,7 +4315,7 @@ app.post("/api/equipment/socket", (req, res) => {
     const item = inv.equippedItemsByHero?.[heroId]?.[slotKey];
     if (!item) return res.status(400).json({ ok: false, error: "no_item_in_slot" });
 
-    const cur = Math.max(0, Number(item.gemSlots || item.socketSlots || 0));
+    const cur = Math.max(0, Number(item.socketSlots || 0));
     if (cur >= 3) return res.status(400).json({ ok: false, error: "max_slots" });
 
     const c1 = consumeTplFromInventory(inv, "tool_socket", 1);
@@ -4322,12 +4323,12 @@ app.post("/api/equipment/socket", (req, res) => {
     const c2 = consumeTplFromInventory(inv, "mat_base", 2);
     if (!c2.ok) return res.status(400).json({ ok: false, error: "not_enough_materials", tplId: "mat_base" });
 
-    item.gemSlots = cur + 1;
+    item.socketSlots = cur + 1;
 
     rec.inventory = inv;
     writeJSON("inventories.json", { inventories: arr });
 
-    return res.json({ ok: true, slot: slotKey, gemSlots: item.gemSlots });
+    return res.json({ ok: true, slot: slotKey, socketSlots: item.socketSlots });
   } catch (e) {
     return res.status(500).json({ ok: false, error: String(e?.message || e) });
   }
@@ -4776,6 +4777,8 @@ app.post("/api/admin/mail/send", (req, res) => {
 
 // Root
 app.get("/", (req, res) => res.sendFile(path.join(clientDir, "index.html")));
+
+app.use("/api/dungeons", dungeonsRoute);
 
 // 404 for API
 app.use("/api", (req, res) => res.status(404).json({ ok: false, error: "API route not found" }));

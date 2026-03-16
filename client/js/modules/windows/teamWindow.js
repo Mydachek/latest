@@ -104,7 +104,7 @@ function render(s) {
 
             <div class="tw2-power">
               <div class="tw2-powerLabel">Мощь</div>
-              <div class="tw2-powerVal">${(s.stats[selectedId]?.power ?? 0)}</div>
+              <div class="tw2-powerVal">${fmtStat(s.stats[selectedId]?.power ?? 0)}</div>
             </div>
 
             <div class="tw2-centerActions">
@@ -259,7 +259,7 @@ function slotBoxRing(label, item, key, group, pos, targetKey = null) {
         ${item ? `
           <div class="tw2-itemBadge tw2-r-${esc(item.rarity || "common")}"
                data-equip-slot="${key}" data-equip-group="${group}">
-            <div class="tw2-itemName">${esc(item.name || item.tplId || "")}</div>
+            <div class="tw2-itemName" title="${esc(item.name || item.tplId || "")}">${esc(item.name || item.tplId || "")}</div>
           </div>
         ` : `<div class="tw2-empty"></div>`}
       </div>
@@ -271,9 +271,14 @@ function miniStat(k, v) {
   return `
     <div class="tw2-statRow">
       <div class="tw2-statK">${k}</div>
-      <div class="tw2-statV">${v ?? 0}</div>
+      <div class="tw2-statV">${fmtStat(v ?? 0)}</div>
     </div>
   `;
+}
+
+function fmtStat(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? String(Math.ceil(n)) : String(v ?? 0);
 }
 
 /* ---------- Inventory rendering helpers ---------- */
@@ -317,7 +322,8 @@ function itemCell(it) {
     <div class="tw2-cell tw2-itemCell ${badge}"
          data-item-id="${esc(it.id)}"
          data-item-type="${esc(it.type)}"
-         data-item-tab="${esc(it.type === "jewelry" ? "jewelry" : (isClothesType(it.type) ? "clothes" : "items"))}">
+         data-item-tab="${esc(it.type === "jewelry" ? "jewelry" : (isClothesType(it.type) ? "clothes" : "items"))}"
+         title="${esc(it.name || it.tplId || "Предмет")}">
       <div class="tw2-cellName">${esc(it.name)}</div>
       ${qty > 1 ? `<div class="tw2-cellQty">${qty}</div>` : ``}
     </div>
