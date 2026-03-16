@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Naruto — Вибір серверу</title>
+  <style>
+    :root{ --bg:#0b0f14; --card:#121824; --text:#e9eef6; --muted:#98a3b3; --acc:#ffb02e; --line:rgba(255,255,255,.10); }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,Segoe UI,Roboto,Arial; background:radial-gradient(1200px 600px at 40% 10%,rgba(255,176,46,.18),transparent 60%), var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
+    .wrap{width:min(1100px,100%); background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:0 16px 40px rgba(0,0,0,.35)}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px}
+    h1{margin:0; font-size:22px}
+    .muted{color:var(--muted); font-size:13px}
+    .grid{display:grid; grid-template-columns: 280px 1fr; gap:14px}
+    .list{border:1px solid var(--line); border-radius:16px; background:rgba(0,0,0,.22); padding:10px; max-height:520px; overflow:auto}
+    .srv{width:100%; text-align:left; padding:14px 12px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); cursor:pointer; font-weight:800; margin-bottom:10px}
+    .srv.active{border-color:rgba(255,176,46,.55); box-shadow:0 0 0 3px rgba(255,176,46,.12) inset}
+    .preview{border:1px solid var(--line); border-radius:16px; background:rgba(0,0,0,.22); padding:16px; min-height:520px; position:relative}
+    .big{font-size:28px; font-weight:900}
+    .btnRow{display:flex; gap:10px; margin-top:14px}
+    .btn{flex:1; padding:12px 12px; border-radius:12px; border:0; background:var(--acc); color:#1b1205; cursor:pointer; font-weight:900}
+    .btn.secondary{background:transparent; color:var(--text); border:1px solid var(--line)}
+    .note{margin-top:10px; color:var(--muted); font-size:13px; white-space:pre-wrap}
+    .err{color:#ff9f9f}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--muted); font-size:12px; margin-top:10px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} .preview{min-height:auto} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h1>Вибір серверу</h1>
+        <div class="muted">Після вибору серверу — створення персонажа.</div>
+      </div>
+      <button class="btn secondary" id="logoutBtn" style="max-width:220px">Вийти</button>
+    </div>
+
+    <div class="grid">
+      <div class="list" id="srvList"></div>
+
+      <div class="preview">
+        <div class="big" id="srvTitle">—</div>
+        <div class="muted" id="srvDesc" style="margin-top:6px">Оберіть сервер зліва.</div>
+        <div class="tag" id="srvTag" style="display:none"></div>
+
+        <div class="btnRow" style="position:absolute; left:16px; right:16px; bottom:16px">
+          <button class="btn" id="confirmBtn">Підтвердити</button>
+        </div>
+        <div class="note" id="note" style="position:absolute; left:16px; right:16px; bottom:64px"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const servers = [
+    { id:'Hokage S246', desc:'Новий сервер (свіжа економіка).', tag:'NEW' },
+    { id:'Hokage S245', desc:'Активний сервер.', tag:'LIVE' },
+    { id:'Hokage S244', desc:'Стабільний сервер.', tag:'LIVE' },
+    { id:'Hokage S243', desc:'Стабільний сервер.', tag:'LIVE' },
+    { id:'Hokage S242', desc:'Стабільний сервер.', tag:'LIVE' },
+    { id:'Hokage S241', desc:'Стабільний сервер.', tag:'LIVE' },
+  ];
+
+  const userId = localStorage.getItem('userId');
+  if(!userId) location.href = '/';
+
+  document.getElementById('logoutBtn').onclick = ()=>{
+    localStorage.removeItem('userId');
+    localStorage.removeItem('playerId');
+    localStorage.removeItem('serverId');
+    location.href = '/';
+  };
+
+  const list = document.getElementById('srvList');
+  const title = document.getElementById('srvTitle');
+  const desc = document.getElementById('srvDesc');
+  const tag = document.getElementById('srvTag');
+  const note = document.getElementById('note');
+
+  let selected = localStorage.getItem('serverId') || '';
+
+  function render(){
+    list.innerHTML = '';
+    for(const s of servers){
+      const b = document.createElement('button');
+      b.className = 'srv' + (s.id===selected ? ' active':'');
+      b.textContent = s.id;
+      b.onclick = ()=>{ selected = s.id; render(); show(); };
+      list.appendChild(b);
+    }
+  }
+
+  function show(){
+    const s = servers.find(x=>x.id===selected);
+    if(!s){
+      title.textContent = '—';
+      desc.textContent = 'Оберіть сервер зліва.';
+      tag.style.display='none';
+      return;
+    }
+    title.textContent = s.id;
+    desc.textContent = s.desc;
+    tag.textContent = s.tag;
+    tag.style.display = 'inline-block';
+  }
+
+  async function safeJson(res){
+    const ct = res.headers.get('content-type')||'';
+    if(ct.includes('application/json')) return await res.json();
+    return { ok:false, error:'Non-JSON response', details:(await res.text()).slice(0,300) };
+  }
+
+  document.getElementById('confirmBtn').onclick = async ()=>{
+    note.classList.remove('err');
+    if(!selected){ note.classList.add('err'); note.textContent='❌ Обери сервер'; return; }
+
+    note.textContent = 'Зберігаю вибір...';
+
+    const res = await fetch('/api/auth/selectServer',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ userId, serverId:selected })
+    }).catch(()=>null);
+
+    if(!res){ note.classList.add('err'); note.textContent='❌ Network error'; return; }
+    const data = await safeJson(res);
+    if(!res.ok || !data?.ok){ note.classList.add('err'); note.textContent=`❌ ${data?.error||'Помилка'}`; return; }
+
+    localStorage.setItem('serverId', selected);
+
+    // якщо персонаж вже є — одразу у village
+    if(data.user?.playerId){
+      localStorage.setItem('playerId', data.user.playerId);
+      note.textContent='✅ Є персонаж. Заходжу в Village...';
+      return setTimeout(()=>location.href='/village.html', 250);
+    }
+
+    note.textContent='✅ Сервер обрано. Створюємо персонажа...';
+    setTimeout(()=>location.href='/create.html', 250);
+  };
+
+  render();
+  show();
+</script>
+</body>
+</html>

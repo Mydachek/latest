@@ -1,0 +1,293 @@
+{
+  "heroTemplates": [
+    {
+      "templateId": "main_default_c",
+      "name": "Administrator",
+      "rarity": "C",
+      "role": "assault",
+      "classType": "ninjutsu",
+      "base": {
+        "spirit": 29,
+        "chakra": 41,
+        "might": 64,
+        "agility": 54,
+        "hp": 462
+      },
+      "growth": {
+        "spirit": 1.2,
+        "chakra": 1.2,
+        "might": 1.2,
+        "agility": 1.2
+      },
+      "ratings": null,
+      "auras": [],
+      "skills": [
+        {
+          "name": "Базова атака",
+          "desc": "Звичайна атака.",
+          "power": 1,
+          "scale": "stratAtk",
+          "rageCost": 0
+        },
+        {
+          "name": "Техніка",
+          "desc": "Посилена атака.",
+          "power": 1.2,
+          "scale": "stratAtk",
+          "rageCost": 100
+        }
+      ]
+    },
+    {
+      "templateId": "sasuke_curse_s",
+      "name": "Проклятая печать Саске",
+      "rarity": "S",
+      "role": "assault",
+      "classType": "taijutsu",
+      "base": {
+        "spirit": 100,
+        "chakra": 50,
+        "might": 100,
+        "agility": 100,
+        "hp": 300
+      },
+      "growth": {
+        "spirit": 2.6,
+        "might": 2.2,
+        "agility": 2.4,
+        "chakra": 1.6
+      },
+      "ratings": {
+        "atk": 1.2,
+        "def": 1.1
+      },
+      "auras": [
+        {
+          "name": "Врожденная сила",
+          "desc": "Підвищує власну Силу на 40%",
+          "self": true,
+          "stat": "might",
+          "pct": 40
+        }
+      ],
+      "skills": [
+        {
+          "name": "Печать: удар по всем",
+          "desc": "Атакує всіх 100%. Дає штурмовикам +40% helpRate і +5% atk на 3 раунди. Собі +5% def.",
+          "power": 1,
+          "target": "allEnemies"
+        }
+      ]
+    },
+    {
+      "templateId": "sakura_star_s",
+      "name": "Звезда Сакура",
+      "rarity": "S",
+      "role": "assault",
+      "classType": "taijutsu",
+      "base": {
+        "spirit": 1200,
+        "chakra": 500,
+        "might": 400,
+        "agility": 700,
+        "hp": 3000
+      },
+      "growth": {
+        "spirit": 4.0,
+        "might": 3.0,
+        "agility": 3.4,
+        "chakra": 2.4
+      },
+      "ratings": {
+        "atk": 1.15,
+        "def": 1.05
+      },
+      "auras": [
+        {
+          "name": "Цветок сакуры",
+          "desc": "Врождено +40% ловкость (собі). +100% рейтинг урона (собі).",
+          "self": true
+        }
+      ],
+      "skills": [
+        {
+          "name": "Удар Сакуры",
+          "desc": "Атакует вражеского авангарда силой 100%. Снижает защиту на 20% на 2 раунда. Увеличивает себе атаку на 100% на 1 раунд.",
+          "power": 1,
+          "target": "enemyVanguard"
+        }
+      ]
+    },
+    {
+      "templateId": "madara_6paths_sss",
+      "name": "Мадара 6-ти путей",
+      "rarity": "SSS",
+      "role": "support",
+      "classType": "genjutsu",
+      "base": {
+        "spirit": 1400,
+        "chakra": 1400,
+        "might": 2000,
+        "agility": 1400,
+        "hp": 6000
+      },
+      "growth": {
+        "spirit": 4.2,
+        "chakra": 4.2,
+        "might": 5.2,
+        "agility": 4.5
+      },
+      "ratings": {
+        "atk": 2.3,
+        "def": 1.15
+      },
+      "auras": [
+        {
+          "name": "Контроль Инь-Янь",
+          "desc": "Врождено +40% ловкость и чакра. +10% экстра-раунд. +15% рейтинг защиты. Иммунитет к оглушению и снижению ярости.",
+          "self": true
+        }
+      ],
+      "skills": [
+        {
+          "name": "Поиск истины",
+          "desc": "Атакует всех врагов силой 230%. Снижает авангарду рейтинг защиты на 50% на 1 раунд. Снижает штурмовикам и помощникам рейтинг урона на 30% на 1 раунд. Восстанавливает ярость: себе 50, остальным 30.",
+          "power": 2.3,
+          "target": "allEnemies",
+          "rageGain": 50,
+          "rageGainAllies": 30
+        }
+      ]
+    },
+    {
+      "templateId": "shisui_sss",
+      "name": "Учиха Шисуи",
+      "rarity": "SSS",
+      "role": "assault",
+      "classType": "taijutsu",
+      "base": {
+        "spirit": 2000,
+        "chakra": 900,
+        "might": 1500,
+        "agility": 1600,
+        "hp": 10000
+      },
+      "growth": {
+        "spirit": 5.0,
+        "might": 4.5,
+        "agility": 4.8,
+        "chakra": 3.0
+      },
+      "ratings": {
+        "atk": 2,
+        "def": 1.2
+      },
+      "auras": [
+        {
+          "name": "Небесное наказание",
+          "desc": "Врождено +40% ловкость, сила духа и здоровье. +20% скорость (собі), +15% рейтинг атаки. Иммунитет к оглушению.",
+          "self": true
+        }
+      ],
+      "skills": [
+        {
+          "name": "Сусаноо: Взрыв",
+          "desc": "Атакует всех врагов силой 200%. Снижает скорость на 15% и защиту на 20% на 2 раунда. Увеличивает помощникам рейтинг помощи на 65% на 2 раунда. Увеличивает всем союзникам рейтинг уворота на 50% на 1 раунд. Восстанавливает себе 68 ярости.",
+          "power": 2,
+          "target": "allEnemies",
+          "rageGain": 68
+        }
+      ]
+    },
+    {
+      "templateId": "obito_outer_sss",
+      "name": "Внешний Путь Обито",
+      "rarity": "SSS",
+      "role": "support",
+      "classType": "genjutsu",
+      "base": {
+        "spirit": 700,
+        "chakra": 600,
+        "might": 800,
+        "agility": 1000,
+        "hp": 2000
+      },
+      "growth": {
+        "spirit": 3.6,
+        "might": 4.0,
+        "agility": 4.0,
+        "chakra": 3.6
+      },
+      "ratings": {
+        "atk": 1.5,
+        "def": 1.1
+      },
+      "auras": [
+        {
+          "name": "Сила Внешнего пути",
+          "desc": "Врождено +40% ловкость. +10% экстра-раунд (собі). Иммунитет к снижению ярости.",
+          "self": true
+        }
+      ],
+      "skills": [
+        {
+          "name": "Гедо Мазо",
+          "desc": "Атакует всех врагов силой 150%. Накладывает на помощников иммунитет к контролям на 2 раунда. Очищает помощников от негативных эффектов. Восстанавливает ярость: себе 100, остальным 30.",
+          "power": 1.5,
+          "target": "allEnemies",
+          "rageGain": 100,
+          "rageGainAllies": 30
+        }
+      ]
+    },
+    {
+      "templateId": "itachi_reanimated_sss",
+      "name": "Воскрешенный Итачи",
+      "rarity": "SSS",
+      "role": "assault",
+      "classType": "ninjutsu",
+      "base": {
+        "spirit": 2200,
+        "chakra": 1200,
+        "might": 1900,
+        "agility": 1600,
+        "hp": 9000
+      },
+      "growth": {
+        "spirit": 5.0,
+        "might": 4.3,
+        "agility": 4.5,
+        "chakra": 5.0
+      },
+      "ratings": {
+        "atk": 2.4,
+        "def": 1.2
+      },
+      "auras": [
+        {
+          "name": "Мощь Шарингана",
+          "desc": "Врождено +40% сила духа и сила. +20% рейтинг защиты (собі). Иммунитет к оглушению и молчанию.",
+          "self": true
+        }
+      ],
+      "skills": [
+        {
+          "name": "Аматерасу",
+          "desc": "Атакует всех врагов силой 240%. С 55% шансом накладывает хаос на 2 раунда. Накладывает воспламенение силой 80% на 1 раунд. Повышает союзным штурмовикам рейтинг помощи на 65% на 3 раунда.",
+          "power": 2.4,
+          "target": "allEnemies",
+          "proc": {
+            "chance": 0.55,
+            "effect": "chaos",
+            "rounds": 2
+          },
+          "dot": {
+            "effect": "burn",
+            "power": 0.8,
+            "rounds": 1
+          }
+        }
+      ]
+    }
+  ]
+}

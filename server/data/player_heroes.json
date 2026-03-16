@@ -1,0 +1,74 @@
+{
+  "playerHeroes": [
+    {
+      "id": "h_df835a92b468619caaa4fa43",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "main_default_c",
+      "name": "Administrator",
+      "isMain": true,
+      "level": 119,
+      "exp": 95954080,
+      "createdAt": "2026-03-01T18:24:24.643Z"
+    },
+    {
+      "id": "h_eea2c03add7a2819caaa69788",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "sasuke_curse_s",
+      "name": "Проклятая печать Саске",
+      "isMain": false,
+      "level": 81,
+      "exp": 28534836,
+      "createdAt": "2026-03-01T18:26:10.440Z"
+    },
+    {
+      "id": "h_f0ab33700adf919caaa69c5e",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "sakura_star_s",
+      "name": "Звезда Сакура",
+      "isMain": false,
+      "level": 64,
+      "exp": 540017,
+      "createdAt": "2026-03-01T18:26:11.678Z"
+    },
+    {
+      "id": "h_53234b39db97c19caaa6a8f1",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "madara_6paths_sss",
+      "name": "Мадара 6-ти путей",
+      "isMain": false,
+      "level": 64,
+      "exp": 540017,
+      "createdAt": "2026-03-01T18:26:14.897Z"
+    },
+    {
+      "id": "h_03c730df0333219caaa6ad83",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "shisui_sss",
+      "name": "Учиха Шисуи",
+      "isMain": false,
+      "level": 64,
+      "exp": 540017,
+      "createdAt": "2026-03-01T18:26:16.067Z"
+    },
+    {
+      "id": "h_2f0602ffc4a2d19caaa6b174",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "obito_outer_sss",
+      "name": "Внешний Путь Обито",
+      "isMain": false,
+      "level": 3,
+      "exp": 6601,
+      "createdAt": "2026-03-01T18:26:17.076Z"
+    },
+    {
+      "id": "h_285dbe093934819caaa6b797",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "templateId": "itachi_reanimated_sss",
+      "name": "Воскрешенный Итачи",
+      "isMain": false,
+      "level": 1,
+      "exp": 0,
+      "createdAt": "2026-03-01T18:26:18.647Z"
+    }
+  ]
+}

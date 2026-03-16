@@ -1,0 +1,212 @@
+/* client/css/teamWindow.css */
+/* ONLY overrides for TW2 ring layout (Naruto Online-like) */
+
+.tw2-eqRing{
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 14px;
+}
+
+/* layers to show/hide by tab */
+.tw2-ringLayer{
+  position: absolute;
+  inset: 0;
+}
+.tw2-ringLayer.is-hidden{
+  display: none;
+}
+
+/* center hero */
+.tw2-heroCenter{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 320px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tw2-heroFrame{
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tw2-heroImg{
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45));
+}
+
+.tw2-heroPlaceholder{
+  opacity: .75;
+  font-size: 14px;
+}
+
+/* slot ring override (IMPORTANT: beats village.css grid look) */
+.tw2-slot.tw2-slotRing{
+  position: absolute !important;
+  transform: translate(-50%, -50%) !important;
+
+  width: 132px !important;
+  height: 74px !important;
+
+  padding: 8px !important;
+  border-radius: 14px;
+}
+
+/* compact label */
+.tw2-slot.tw2-slotRing .tw2-slotLabel{
+  margin-bottom: 6px;
+  font-size: 11px;
+  opacity: .78;
+}
+
+/* compact inner */
+.tw2-slot.tw2-slotRing .tw2-slotInner{
+  height: 40px !important;
+  border-radius: 12px;
+}
+
+/* name fit */
+.tw2-slot.tw2-slotRing .tw2-itemName{
+  font-size: 11px;
+  line-height: 1.05;
+  text-align: center;
+  padding: 0 6px;
+}
+
+/* hover feel */
+.tw2-slot.tw2-slotRing:hover{
+  filter: brightness(1.06);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* selected jewelry target slot (when you click an empty jewelry slot) */
+.tw2-slot.tw2-slotRing.is-target{
+  border-color: rgba(217,179,92,.65) !important;
+  box-shadow: 0 0 0 2px rgba(217,179,92,.20) inset;
+}
+
+/* generic active state for small tab buttons (used by gemsWindow) */
+.tw2-btn2.tw2-active{
+  border-color: rgba(217,179,92,.75) !important;
+  box-shadow: 0 0 0 2px rgba(217,179,92,.18) inset;
+}
+
+@media (max-width: 1400px){
+  .tw2-eqRing{ height: 390px; }
+  .tw2-heroCenter{ width: 210px; height: 300px; }
+  .tw2-slot.tw2-slotRing{ width: 122px !important; height: 70px !important; }
+}
+
+/* =====================
+   ENHANCE WINDOW (NW-like visual)
+   ===================== */
+.enh-wrap{ width:100%; }
+.enh-tabs{ display:flex; gap:8px; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,.06); margin-bottom:10px; }
+.enh-tab{ flex:0 0 auto; padding:8px 12px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.9); cursor:pointer; }
+.enh-tab:hover{ background:rgba(255,255,255,.06); }
+.enh-tab.is-active{ border-color:rgba(255,215,120,.35); box-shadow:0 0 0 3px rgba(255,215,120,.10) inset; }
+
+.enh-cols{ display:grid; grid-template-columns: 230px 320px 1fr; gap:12px; }
+.enh-title{ font-weight:700; opacity:.9; margin:0 0 8px 0; }
+
+.enh-left,.enh-mid,.enh-right{ background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:10px; }
+
+.enh-heroes{ display:flex; flex-direction:column; gap:8px; max-height:440px; overflow:auto; padding-right:4px; }
+.enh-hero{ display:flex; justify-content:space-between; gap:10px; padding:10px 10px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); color:rgba(255,255,255,.9); cursor:pointer; }
+.enh-hero:hover{ background:rgba(255,255,255,.05); }
+.enh-hero.is-active{ border-color:rgba(255,215,120,.35); box-shadow:0 0 0 3px rgba(255,215,120,.10) inset; }
+.enh-heroLvl{ opacity:.8; }
+
+.enh-items{ display:flex; flex-direction:column; gap:8px; }
+.enh-item{ display:grid; grid-template-columns:44px 1fr; gap:10px; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); color:rgba(255,255,255,.9); cursor:pointer; text-align:left; }
+.enh-item:hover{ background:rgba(255,255,255,.05); }
+.enh-item.is-active{ border-color:rgba(255,215,120,.35); box-shadow:0 0 0 3px rgba(255,215,120,.10) inset; }
+.enh-itemIcon{ width:44px; height:44px; border-radius:12px; background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); }
+.enh-itemTop{ display:flex; justify-content:space-between; align-items:center; }
+.enh-itemSlot{ opacity:.85; }
+.enh-plus{ font-weight:800; }
+.enh-itemName{ opacity:.95; margin-top:4px; }
+
+.enh-card{ display:grid; grid-template-columns: 140px 1fr; gap:12px; align-items:center; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); }
+.enh-bigIcon{ width:140px; height:140px; border-radius:16px; background:radial-gradient(circle at 30% 30%, rgba(255,215,120,.14), rgba(255,255,255,.02)); border:1px solid rgba(255,215,120,.22); }
+.enh-statRows{ display:flex; flex-direction:column; gap:8px; }
+.enh-row{ display:flex; justify-content:space-between; gap:10px; padding:8px 10px; border-radius:12px; background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.06); }
+
+.enh-options{ margin-top:10px; display:flex; flex-direction:column; gap:8px; padding:10px; border-radius:14px; border:1px solid rgba(255,255,255,.06); background:rgba(0,0,0,.12); }
+.enh-opt{ display:flex; align-items:center; gap:10px; opacity:.9; }
+.enh-opt input{ transform:scale(1.05); }
+
+.enh-footer{ margin-top:10px; }
+.enh-mainBtn{ width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,215,120,.35); background:rgba(255,215,120,.10); color:rgba(255,255,255,.95); font-weight:800; cursor:pointer; }
+.enh-mainBtn:hover{ background:rgba(255,215,120,.14); }
+.enh-mainBtn:disabled{ opacity:.45; cursor:not-allowed; }
+
+.enh-soon{ padding:18px; }
+/* ===== Enhance extra tabs (heritage/craft/socket/upgrade) ===== */
+.enh-panel{ background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:12px; }
+.enh-row2{ display:flex; justify-content:space-between; gap:10px; padding:8px 10px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); margin-bottom:8px; }
+.enh-row2:last-child{ margin-bottom:0; }
+
+.enh-two{ display:grid; grid-template-columns: 1fr 70px 1fr; gap:12px; align-items:start; }
+.enh-sel{ background:rgba(0,0,0,.12); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:12px; }
+.enh-sub{ font-weight:800; opacity:.9; margin-bottom:8px; }
+.enh-arrow{ display:flex; align-items:center; justify-content:center; height:100%; font-size:28px; opacity:.8; }
+.enh-select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.35);
+  color:rgba(255,255,255,.92);
+  outline:none;
+  /* Make native dropdown use dark palette where supported */
+  color-scheme: dark;
+}
+.enh-select option{ background:#0c0f14; color:#ffffff; }
+.enh-miniCard{ margin-top:10px; padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); }
+.enh-miniTop{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px; }
+.enh-miniName{ font-weight:800; }
+.enh-miniTag{ opacity:.75; font-size:12px; }
+.enh-pill{ margin-top:10px; padding:8px 10px; border-radius:12px; background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.06); }
+
+.enh-recipes{ display:flex; flex-direction:column; gap:10px; max-height:520px; overflow:auto; padding-right:4px; }
+.enh-recipeCard{ text-align:left; padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); color:rgba(255,255,255,.92); cursor:pointer; }
+.enh-recipeCard:hover{ background:rgba(255,255,255,.05); }
+.enh-recipeCard.is-active{ border-color:rgba(255,215,120,.35); box-shadow:0 0 0 3px rgba(255,215,120,.10) inset; }
+.enh-recipeTop{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; }
+.enh-recipeName{ font-weight:900; }
+.enh-recipeOut{ opacity:.8; font-size:12px; }
+.enh-req{ display:flex; flex-direction:column; gap:6px; }
+.enh-reqRow{ display:flex; justify-content:space-between; gap:10px; padding:7px 10px; border-radius:12px; border:1px solid rgba(255,255,255,.06); background:rgba(0,0,0,.14); }
+.enh-reqRow.ok{ border-color:rgba(120,255,170,.25); }
+.enh-reqRow.bad{ border-color:rgba(255,120,120,.25); }
+
+
+/* PATCH11 heritage polish */
+.enh-cols-heritage{ grid-template-columns: 230px minmax(420px, 560px) minmax(320px, 1fr); gap:14px; }
+.enh-mid-heritage,.enh-right-heritage{ min-width:0; }
+.enh-two-heritage{ grid-template-columns: minmax(0,1fr) 52px minmax(0,1fr); gap:10px; align-items:stretch; }
+.enh-sel-heritage{ min-height: 280px; display:flex; flex-direction:column; }
+.enh-arrow-heritage{ align-self:center; width:52px; height:52px; margin-top:86px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)); }
+.enh-panel-heritage,.enh-panel-heritageInfo{ background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.16)); }
+.enh-heritageHint{ line-height:1.45; }
+@media (max-width: 1280px){
+  .enh-cols-heritage{ grid-template-columns: 220px 1fr; }
+  .enh-right-heritage{ grid-column: 1 / -1; }
+}

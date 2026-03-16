@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background: #0f1624;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+#scene {
+  position: relative;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+}

@@ -1,0 +1,40 @@
+{
+  "skills": [
+    {
+      "id": "skill_basic_strike",
+      "name": "Базовая атака",
+      "type": "basic",
+      "scale": "physAtk",
+      "power": 1.0,
+      "rageCost": 0,
+      "desc": "Обычная атака."
+    },
+    {
+      "id": "skill_power_hit",
+      "name": "Сильный удар",
+      "type": "active",
+      "scale": "physAtk",
+      "power": 1.2,
+      "rageCost": 100,
+      "desc": "Особая атака (120% силы атаки)."
+    },
+    {
+      "id": "skill_support_chakra",
+      "name": "Поддержка чакры",
+      "type": "active",
+      "scale": "stratAtk",
+      "power": 0.6,
+      "rageCost": 100,
+      "desc": "Восстанавливает союзникам чакру/ярость (прототип)."
+    },
+    {
+      "id": "skill_guard",
+      "name": "Стойка защиты",
+      "type": "active",
+      "scale": "physDef",
+      "power": 0.8,
+      "rageCost": 100,
+      "desc": "Повышает защиту (прототип)."
+    }
+  ]
+}

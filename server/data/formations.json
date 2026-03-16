@@ -1,0 +1,22 @@
+{
+  "formations": [
+    {
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "formation": {
+        "top": [
+          "h_53234b39db97c19caaa6a8f1",
+          "h_03c730df0333219caaa6ad83"
+        ],
+        "middle": [
+          null,
+          "h_df835a92b468619caaa4fa43",
+          null
+        ],
+        "bottom": [
+          "h_2f0602ffc4a2d19caaa6b174",
+          "h_285dbe093934819caaa6b797"
+        ]
+      }
+    }
+  ]
+}

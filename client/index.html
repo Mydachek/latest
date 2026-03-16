@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Naruto — Вхід / Реєстрація</title>
+  <style>
+    :root{ --bg:#0b0f14; --card:#121824; --text:#e9eef6; --muted:#98a3b3; --acc:#ffb02e; --line:rgba(255,255,255,.10); }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,Segoe UI,Roboto,Arial; background:radial-gradient(1200px 600px at 40% 10%,rgba(255,176,46,.18),transparent 60%), var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
+    .wrap{width:min(980px,100%); display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:0 16px 40px rgba(0,0,0,.35)}
+    h1{margin:0 0 6px; font-size:26px}
+    .sub{color:var(--muted); margin:0 0 14px}
+    .tabs{display:flex; gap:10px; margin:14px 0 12px}
+    .tab{flex:1; border:1px solid var(--line); background:transparent; color:var(--text); padding:10px 12px; border-radius:12px; cursor:pointer; font-weight:700}
+    .tab.active{border-color:rgba(255,176,46,.55); box-shadow:0 0 0 3px rgba(255,176,46,.12) inset}
+    .row{display:grid; gap:10px; margin-top:10px}
+    label{font-size:12px; color:var(--muted)}
+    input{width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text); outline:none}
+    input:focus{border-color:rgba(255,176,46,.65)}
+    .btn{width:100%; padding:12px 12px; border-radius:12px; border:0; background:var(--acc); color:#1b1205; cursor:pointer; font-weight:900; margin-top:10px}
+    .btn:disabled{opacity:.6; cursor:not-allowed}
+    .note{margin-top:10px; color:var(--muted); font-size:13px; white-space:pre-wrap}
+    .err{color:#ff9f9f}
+    .side h2{margin:0 0 8px; font-size:18px}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--muted); font-size:13px}
+    .list{display:flex; flex-direction:column; gap:10px; margin-top:12px}
+    .hint{color:var(--muted); font-size:13px; line-height:1.35}
+    @media (max-width: 860px){ .wrap{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <h1>Вхід / Реєстрація</h1>
+      <p class="sub">Створи акаунт, обери сервер, створи персонажа — і потрапиш у Village.</p>
+
+      <div class="tabs">
+        <button class="tab active" id="tabLogin">Вхід</button>
+        <button class="tab" id="tabRegister">Реєстрація</button>
+      </div>
+
+      <div id="formLogin">
+        <div class="row">
+          <div>
+            <label>Логін</label>
+            <input id="loginLogin" placeholder="mydachek" autocomplete="username" />
+          </div>
+          <div>
+            <label>Пароль</label>
+            <input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" />
+          </div>
+          <button class="btn" id="loginBtn">Увійти</button>
+          <div class="note" id="loginNote"></div>
+        </div>
+      </div>
+
+      <div id="formRegister" style="display:none">
+        <div class="row">
+          <div>
+            <label>Логін (латиниця/цифри . _ -)</label>
+            <input id="regLogin" placeholder="mydachek" autocomplete="username" />
+          </div>
+          <div>
+            <label>Пароль (6+)</label>
+            <input id="regPass" type="password" placeholder="••••••••" autocomplete="new-password" />
+          </div>
+          <button class="btn" id="regBtn">Створити акаунт</button>
+          <div class="note" id="regNote"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel side">
+      <h2>Як це працює</h2>
+      <div class="list">
+        <div class="badge">1) Реєстрація / Вхід</div>
+        <div class="badge">2) Вибір серверу</div>
+        <div class="badge">3) Створення персонажа</div>
+        <div class="badge">4) Вхід у Village</div>
+      </div>
+      <p class="hint" style="margin-top:14px">
+        Дані акаунтів зберігаються в <b>server/data/users.json</b> (хеш пароля).<br/>
+        Валюта / VIP / SVIP — в <b>server/data/players.json</b>.
+      </p>
+    </div>
+  </div>
+
+<script>
+  // якщо вже залогінений — одразу продовжуємо ланцюжок
+  (async function bootstrap(){
+    const userId = localStorage.getItem('userId');
+    if(!userId) return;
+
+    const me = await fetch(`/api/auth/me?userId=${encodeURIComponent(userId)}`).then(r=>r.json()).catch(()=>null);
+    if(!me?.ok){
+      localStorage.removeItem('userId');
+      localStorage.removeItem('playerId');
+      localStorage.removeItem('serverId');
+      return;
+    }
+
+    const u = me.user;
+    localStorage.setItem('serverId', u.serverId || '');
+    if(u.playerId) localStorage.setItem('playerId', u.playerId);
+
+    if(!u.serverId) return location.href = '/servers.html';
+    if(!u.playerId) return location.href = '/create.html';
+    return location.href = '/village.html';
+  })();
+
+  const tabLogin = document.getElementById('tabLogin');
+  const tabRegister = document.getElementById('tabRegister');
+  const formLogin = document.getElementById('formLogin');
+  const formRegister = document.getElementById('formRegister');
+
+  tabLogin.onclick = ()=>{ tabLogin.classList.add('active'); tabRegister.classList.remove('active'); formLogin.style.display='block'; formRegister.style.display='none'; };
+  tabRegister.onclick = ()=>{ tabRegister.classList.add('active'); tabLogin.classList.remove('active'); formRegister.style.display='block'; formLogin.style.display='none'; };
+
+  async function safeJson(res){
+    const ct = res.headers.get('content-type')||'';
+    if(ct.includes('application/json')) return await res.json();
+    return { ok:false, error:'Non-JSON response', details:(await res.text()).slice(0,300) };
+  }
+
+  document.getElementById('regBtn').onclick = async ()=>{
+    const note = document.getElementById('regNote');
+    note.classList.remove('err');
+    note.textContent = 'Створюю акаунт...';
+
+    const login = document.getElementById('regLogin').value;
+    const password = document.getElementById('regPass').value;
+
+    const res = await fetch('/api/auth/register',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ login, password })
+    }).catch(()=>null);
+
+    if(!res){ note.classList.add('err'); note.textContent='❌ Network error'; return; }
+    const data = await safeJson(res);
+    if(!res.ok || !data?.ok){
+      note.classList.add('err');
+      note.textContent = `❌ ${data?.error || 'Помилка'}`;
+      return;
+    }
+
+    localStorage.setItem('userId', data.user.id);
+    localStorage.setItem('serverId', '');
+    localStorage.removeItem('playerId');
+
+    note.textContent = '✅ Готово! Обери сервер...';
+    setTimeout(()=>location.href='/servers.html', 250);
+  };
+
+  document.getElementById('loginBtn').onclick = async ()=>{
+    const note = document.getElementById('loginNote');
+    note.classList.remove('err');
+    note.textContent = 'Входжу...';
+
+    const login = document.getElementById('loginLogin').value;
+    const password = document.getElementById('loginPass').value;
+
+    const res = await fetch('/api/auth/login',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ login, password })
+    }).catch(()=>null);
+
+    if(!res){ note.classList.add('err'); note.textContent='❌ Network error'; return; }
+    const data = await safeJson(res);
+
+    if(!res.ok || !data?.ok){
+      note.classList.add('err');
+      note.textContent = `❌ ${data?.error || 'Помилка'}`;
+      return;
+    }
+
+    const u = data.user;
+    localStorage.setItem('userId', u.id);
+    localStorage.setItem('serverId', u.serverId || '');
+    if(u.playerId) localStorage.setItem('playerId', u.playerId);
+
+    if(!u.serverId){ note.textContent='✅ Успіх! Обери сервер...'; return setTimeout(()=>location.href='/servers.html',250); }
+    if(!u.playerId){ note.textContent='✅ Успіх! Створи персонажа...'; return setTimeout(()=>location.href='/create.html',250); }
+    note.textContent='✅ Успіх! Заходжу в Village...';
+    setTimeout(()=>location.href='/village.html',250);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+
+/* ===== NW Enhance Window (equipment) ===== */
+
+.nw3-wrap{ width:100%; }
+.nw3-cols{ display:flex; gap:10px; }
+.nw3-left{ width:170px; }
+.nw3-mid{ flex:1; min-width:260px; }
+.nw3-right{ width:260px; }
+.nw3-title{ font-weight:700; margin-bottom:8px; }
+.nw3-list{ display:flex; flex-direction:column; gap:6px; }
+.nw3-hero{ text-align:left; padding:8px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); background:rgba(0,0,0,0.25); color:#fff; cursor:pointer; }
+.nw3-hero.active{ outline:2px solid rgba(255,215,0,0.35); }
+.nw3-heroName{ font-weight:700; }
+.nw3-heroLvl{ font-size:12px; opacity:0.85; }
+.nw3-slots{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:8px; }
+.nw3-slot{ text-align:left; padding:8px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); background:rgba(0,0,0,0.25); color:#fff; cursor:pointer; }
+.nw3-slot.active{ outline:2px solid rgba(255,215,0,0.35); }
+.nw3-slotTop{ display:flex; justify-content:space-between; font-size:12px; opacity:0.9; margin-bottom:4px; }
+.nw3-plus{ font-weight:800; }
+.nw3-slotName{ font-size:13px; }
+.nw3-actions .muted{ font-size:12px; opacity:0.8; }
+@media (max-width: 920px){
+  .nw3-cols{ flex-direction:column; }
+  .nw3-left,.nw3-right{ width:auto; }
+}

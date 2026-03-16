@@ -1,0 +1,1205 @@
+{
+  "items": [
+    {
+      "id": "itm_1013d429b7c85819caaa63ad8",
+      "type": "consumable",
+      "slot": null,
+      "name": "Сувій досвіду",
+      "desc": "",
+      "tplId": "itm_exp_scroll_basic",
+      "qty": 899,
+      "maxStack": 999,
+      "effects": {
+        "exp": 100,
+        "target": "secondary"
+      },
+      "rarity": "C",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_b745867b46f2d19caaa63ad9",
+      "type": "consumable",
+      "slot": null,
+      "name": "Продвинутий Сувій",
+      "desc": "",
+      "tplId": "itm_exp_scroll_rare",
+      "qty": 999,
+      "maxStack": 999,
+      "effects": {
+        "exp": 1000,
+        "target": "secondary"
+      },
+      "rarity": "B",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_0c5c9956153119caaa63ada",
+      "type": "consumable",
+      "slot": null,
+      "name": "Елітний сувій",
+      "desc": "",
+      "tplId": "itm_exp_scroll_elite",
+      "qty": 999,
+      "maxStack": 999,
+      "effects": {
+        "exp": 10000,
+        "target": "secondary"
+      },
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_841e08be0749119caaa63adc",
+      "type": "consumable",
+      "slot": null,
+      "name": "Склянка досвіду",
+      "desc": "",
+      "tplId": "itm_exp_glass_basic",
+      "qty": 999,
+      "maxStack": 999,
+      "effects": {
+        "exp": 10000,
+        "target": "main"
+      },
+      "rarity": "C",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_55c0bc0d3f8bc819caaa63add",
+      "type": "consumable",
+      "slot": null,
+      "name": "Незвичайна Склянка",
+      "desc": "",
+      "tplId": "itm_exp_glass_rare",
+      "qty": 999,
+      "maxStack": 999,
+      "effects": {
+        "exp": 50000,
+        "target": "main"
+      },
+      "rarity": "B",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_a60cb8efa4c94819caaa63ade",
+      "type": "consumable",
+      "slot": null,
+      "name": "Елітна Склянка",
+      "desc": "",
+      "tplId": "itm_exp_glass_elite",
+      "qty": 999,
+      "maxStack": 999,
+      "effects": {
+        "exp": 250000,
+        "target": "main"
+      },
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_52c80c3d1291719cac4fa596",
+      "type": "consumable",
+      "slot": null,
+      "name": "Ящик біжутерії: Призрак",
+      "desc": "Откройте, чтобы получить 8 частей біжутерії сета Призрак.",
+      "tplId": "box_jset_prizrak",
+      "icon": "jbox_prizrak.png",
+      "qty": 1,
+      "maxStack": 999,
+      "effects": {
+        "openSet": "j_prizrak"
+      },
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_a6d11a176fe60819cac4fa598",
+      "type": "consumable",
+      "slot": null,
+      "name": "Ящик біжутерії: Шести путей",
+      "desc": "Откройте, чтобы получить 8 частей біжутерії сета Шести путей.",
+      "tplId": "box_jset_sixpaths",
+      "icon": "jbox_sixpaths.png",
+      "qty": 1,
+      "maxStack": 999,
+      "effects": {
+        "openSet": "j_sixpaths"
+      },
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_61e7d1b543c51819cac4fa59a",
+      "type": "consumable",
+      "slot": null,
+      "name": "Ящик сета: Ангел",
+      "desc": "Сет брони Ангел. 2ч: Рейтинг защиты +15%. 4ч: Ловкость +2000, рейтинг урона +10%. 6ч: Рейтинг пробития +10%, жизнь +5000.",
+      "tplId": "box_set_angel",
+      "icon": "box_angel.png",
+      "qty": 1,
+      "maxStack": 999,
+      "effects": {
+        "openSet": "angel"
+      },
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_efc575276bdc719cac4fa59b",
+      "type": "consumable",
+      "slot": null,
+      "name": "Ящик сета: Ледовый",
+      "desc": "Сет брони Ледовый. 2ч: Ловкость +2000, рейтинг урона +10%. 4ч: Снижает защиту врага на 20%, жизнь +5000. 6ч: Крит. урон +20%, рейтинг защиты +15%.",
+      "tplId": "box_set_ice",
+      "icon": "box_ice.png",
+      "qty": 1,
+      "maxStack": 999,
+      "effects": {
+        "openSet": "ice"
+      },
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_eebcbe9c9968a19cac500ec6",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Акацукі: Кунай",
+      "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+      "tplId": "set_akatsuki_kunai",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_b3d01624b3af8819cac500ec6",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Акацукі: Сюрікен",
+      "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+      "tplId": "set_akatsuki_shuriken",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_6fd15c9dc840d19cac53e642",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Бездна: Сюрікен",
+      "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+      "tplId": "set_abyss_shuriken",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_7b63751d9fd0c819cac53e642",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Бездна: Сувій",
+      "desc": " (Оружие: свиток, только ниндзюцу)",
+      "tplId": "set_abyss_scroll",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_5d63bec5d402519cb174deb7",
+      "type": "gem",
+      "slot": null,
+      "name": "Самоцвет: S-атака 12",
+      "desc": "+45% S-атака",
+      "tplId": "gem_sAttackRate_12",
+      "icon": "gem_placeholder.png",
+      "qty": 1,
+      "maxStack": 999,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_fdf2acb3d904919cb174debb",
+      "type": "gem",
+      "slot": null,
+      "name": "Самоцвет: Ярость 12",
+      "desc": "+24% Начальная ярость",
+      "tplId": "gem_fury_12",
+      "icon": "gem_placeholder.png",
+      "qty": 12,
+      "maxStack": 999,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_233aac12b977519cbba18043",
+      "type": "material",
+      "slot": null,
+      "name": "Радужний камінь",
+      "desc": "Витрачається при поліпшенні екіпіровки у вкладці 'Усилить вещь'.",
+      "tplId": "stone_rainbow",
+      "icon": null,
+      "qty": 969,
+      "maxStack": 9999,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_980f1c11f6c42819cbba18049",
+      "type": "material",
+      "slot": null,
+      "name": "Інструмент для вставки",
+      "desc": "Потрібен для відкриття слоту самоцвіта (Проточка).",
+      "tplId": "tool_socket",
+      "icon": null,
+      "qty": 999,
+      "maxStack": 9999,
+      "rarity": "B",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_8cd8f86fda2ba19cbba18050",
+      "type": "material",
+      "slot": null,
+      "name": "Базовий матеріал",
+      "desc": "Потрібен для крафта будь-якої екіпіровки.",
+      "tplId": "mat_base",
+      "icon": null,
+      "qty": 979,
+      "maxStack": 9999,
+      "rarity": "C",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_b77e4b47534ae19cbba18058",
+      "type": "material",
+      "slot": null,
+      "name": "Матеріал Акацукі",
+      "desc": "Потрібен для крафта екіпіровки Акацукі.",
+      "tplId": "mat_akatsuki",
+      "icon": null,
+      "qty": 989,
+      "maxStack": 9999,
+      "rarity": "B",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_740f629f5398919cbba1805d",
+      "type": "material",
+      "slot": null,
+      "name": "Божественний камінь",
+      "desc": "Якщо є в інвентарі — шанс успіху 100% у вкладці 'Усилить вещь'. (Не витрачається)",
+      "tplId": "stone_divine",
+      "icon": null,
+      "qty": 1,
+      "maxStack": 9999,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_fcc7127f6cb419cbba1e74d",
+      "type": "equipment",
+      "slot": "cloak",
+      "name": "Акацукі: Плащ",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_cloak",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_b5eeee7a4db5819cbba1f1fe",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Акацукі: Кунай",
+      "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+      "tplId": "set_akatsuki_kunai",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "location": "bag"
+    },
+    {
+      "id": "itm_b67cefd620d3e819cac500ec6",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Акацукі: Сувій",
+      "desc": " (Оружие: свиток, только ниндзюцу)",
+      "tplId": "set_akatsuki_scroll",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_sAttackRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "enhanceLevel": 0,
+      "upgradeLevel": 30,
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "weapon"
+    },
+    {
+      "id": "itm_3c957f80b8e97819cac500ec6",
+      "type": "equipment",
+      "slot": "armor",
+      "name": "Акацукі: Нагрудник",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_armor",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_sAttackRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "enhanceLevel": 34,
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "armor"
+    },
+    {
+      "id": "itm_4ab59a9e32c32819cac500ec6",
+      "type": "equipment",
+      "slot": "head",
+      "name": "Акацукі: Шолом",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_helm",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_sAttackRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "head"
+    },
+    {
+      "id": "itm_222564a80b75519cac500ec6",
+      "type": "equipment",
+      "slot": "cloak",
+      "name": "Акацукі: Плащ",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_cloak",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "cloak"
+    },
+    {
+      "id": "itm_92c0a3aaed186819cac500ec6",
+      "type": "equipment",
+      "slot": "belt",
+      "name": "Акацукі: Пояс",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_belt",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "belt"
+    },
+    {
+      "id": "itm_659368f646f91819cac500ec6",
+      "type": "equipment",
+      "slot": "shoes",
+      "name": "Акацукі: Ботинки",
+      "desc": "Часть сета Акацукі.",
+      "tplId": "set_akatsuki_boots",
+      "icon": null,
+      "rarity": "A",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_agility_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_chakra_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_accuracyRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "shoes"
+    },
+    {
+      "id": "itm_67afaec8db8df819cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо духа II",
+      "desc": "+5000 spirit. (Слот по типу: spirit)",
+      "tplId": "jset_king_spirit_2",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j1"
+    },
+    {
+      "id": "itm_e70ab1ed2e8ce819cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо чакры II",
+      "desc": "+5000 chakra. (Слот по типу: chakra)",
+      "tplId": "jset_king_chakra_2",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j2"
+    },
+    {
+      "id": "itm_af731a5fac8a219cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо ловкости II",
+      "desc": "+5000 agility. (Слот по типу: agility)",
+      "tplId": "jset_king_agility_2",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j3"
+    },
+    {
+      "id": "itm_c13a606cd3a17819cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо духа I",
+      "desc": "+5000 spirit. (Слот по типу: spirit)",
+      "tplId": "jset_king_spirit_1",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j4"
+    },
+    {
+      "id": "itm_75f0384c15a48819cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо чакры I",
+      "desc": "+5000 chakra. (Слот по типу: chakra)",
+      "tplId": "jset_king_chakra_1",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j5"
+    },
+    {
+      "id": "itm_76325185f0a7b819cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Кольцо ловкости I",
+      "desc": "+5000 agility. (Слот по типу: agility)",
+      "tplId": "jset_king_agility_1",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j6"
+    },
+    {
+      "id": "itm_3f7d06ee0912919cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Талисман жизни I",
+      "desc": "+20000 HP. (Тип: ХП, слот j7/j8)",
+      "tplId": "jset_king_hp_1",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j7"
+    },
+    {
+      "id": "itm_a504566a1405a19cac503ca1",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Короля: Талисман жизни II",
+      "desc": "+20000 HP. (Тип: ХП, слот j7/j8)",
+      "tplId": "jset_king_hp_2",
+      "icon": null,
+      "rarity": "S",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_df835a92b468619caaa4fa43",
+      "location": "equipped",
+      "equipSlot": "j8"
+    },
+    {
+      "id": "itm_9a7dbb2ab07a5819cac53e642",
+      "type": "equipment",
+      "slot": "weapon",
+      "name": "Бездна: Кунай",
+      "desc": " (Оружие: можно тайдзюцу/ниндзюцу)",
+      "tplId": "set_abyss_kunai",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_sAttackRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "weapon"
+    },
+    {
+      "id": "itm_34a8f63a6bc6e19cac53e642",
+      "type": "equipment",
+      "slot": "armor",
+      "name": "Бездна: Нагрудник",
+      "desc": "Часть сета Бездна.",
+      "tplId": "set_abyss_armor",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_sAttackRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "armor"
+    },
+    {
+      "id": "itm_52fe748c98ae919cac53e642",
+      "type": "equipment",
+      "slot": "head",
+      "name": "Бездна: Шолом",
+      "desc": "Часть сета Бездна.",
+      "tplId": "set_abyss_helm",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": {
+            "tplId": "gem_critRate_12"
+          }
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "head"
+    },
+    {
+      "id": "itm_c0acbf4df41db819cac53e642",
+      "type": "equipment",
+      "slot": "cloak",
+      "name": "Бездна: Плащ",
+      "desc": "Часть сета Бездна.",
+      "tplId": "set_abyss_cloak",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "cloak"
+    },
+    {
+      "id": "itm_b65a876e8e41e819cac53e642",
+      "type": "equipment",
+      "slot": "belt",
+      "name": "Бездна: Пояс",
+      "desc": "Часть сета Бездна.",
+      "tplId": "set_abyss_belt",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "belt"
+    },
+    {
+      "id": "itm_c1b1186b6a565819cac53e642",
+      "type": "equipment",
+      "slot": "shoes",
+      "name": "Бездна: Ботинки",
+      "desc": "Часть сета Бездна.",
+      "tplId": "set_abyss_boots",
+      "icon": null,
+      "rarity": "S",
+      "gemSlots": [
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": true,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        },
+        {
+          "open": false,
+          "gem": null
+        }
+      ],
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "shoes"
+    },
+    {
+      "id": "itm_c20238b0f64a419cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо духа I",
+      "desc": "+2500 spirit. (Слот по типу: spirit)",
+      "tplId": "jset_akatsuki_spirit_1",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j1"
+    },
+    {
+      "id": "itm_8811a7de2ff56819cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо чакры I",
+      "desc": "+2500 chakra. (Слот по типу: chakra)",
+      "tplId": "jset_akatsuki_chakra_1",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j2"
+    },
+    {
+      "id": "itm_7e4c0068bf745819cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо ловкости I",
+      "desc": "+2500 agility. (Слот по типу: agility)",
+      "tplId": "jset_akatsuki_agility_1",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j3"
+    },
+    {
+      "id": "itm_03f6bdeb56c2d819cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо духа II",
+      "desc": "+2500 spirit. (Слот по типу: spirit)",
+      "tplId": "jset_akatsuki_spirit_2",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j4"
+    },
+    {
+      "id": "itm_661198375636d19cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо чакры II",
+      "desc": "+2500 chakra. (Слот по типу: chakra)",
+      "tplId": "jset_akatsuki_chakra_2",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j5"
+    },
+    {
+      "id": "itm_bea893b69f0919cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Кольцо ловкости II",
+      "desc": "+2500 agility. (Слот по типу: agility)",
+      "tplId": "jset_akatsuki_agility_2",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j6"
+    },
+    {
+      "id": "itm_b46d56d9a862519cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Талисман жизни I",
+      "desc": "+12000 HP. (Тип: ХП, слот j7/j8)",
+      "tplId": "jset_akatsuki_hp_1",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j7"
+    },
+    {
+      "id": "itm_bb48d7631a2e819cac53ced7",
+      "type": "equipment",
+      "slot": "jewelry",
+      "name": "Акацукі: Талисман жизни II",
+      "desc": "+12000 HP. (Тип: ХП, слот j7/j8)",
+      "tplId": "jset_akatsuki_hp_2",
+      "icon": null,
+      "rarity": "A",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "heroId": "h_03c730df0333219caaa6ad83",
+      "location": "equipped",
+      "equipSlot": "j8"
+    }
+  ]
+}

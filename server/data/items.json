@@ -1,0 +1,34 @@
+{
+  "items": {
+    "item_potion_small": {
+      "id": "item_potion_small",
+      "name": "Зелье (мал.)",
+      "slot": null,
+      "type": "consumable",
+      "desc": "Пока без эффекта."
+    },
+    "item_scroll_basic": {
+      "id": "item_scroll_basic",
+      "name": "Свиток новичка",
+      "slot": null,
+      "type": "misc",
+      "desc": "Пока без эффекта."
+    },
+    "item_starter_armor": {
+      "id": "item_starter_armor",
+      "name": "Броня новичка",
+      "slot": "armor",
+      "type": "equipment",
+      "bonusPrimary": { "hp": 30, "physDef": 2 },
+      "desc": "+HP +Физ.защ"
+    },
+    "item_starter_weapon": {
+      "id": "item_starter_weapon",
+      "name": "Оружие новичка",
+      "slot": "weapon",
+      "type": "equipment",
+      "bonusPrimary": { "physAtk": 2 },
+      "desc": "+Физ.атака"
+    }
+  }
+}

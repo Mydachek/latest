@@ -1,0 +1,25 @@
+{
+  "auras": [
+    {
+      "id": "aura_starter",
+      "name": "Путь новичка",
+      "effect": {
+        "secondary": { "damageRate": 5, "critRate": 2 }
+      }
+    },
+    {
+      "id": "aura_support",
+      "name": "Помощь",
+      "effect": {
+        "secondary": { "helpRate": 15, "healRate": 10 }
+      }
+    },
+    {
+      "id": "aura_tank",
+      "name": "Страж",
+      "effect": {
+        "primary": { "physDef": 3, "hp": 20 }
+      }
+    }
+  ]
+}

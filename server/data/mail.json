@@ -1,0 +1,274 @@
+{
+  "letters": [
+    {
+      "id": "mail_1b06efdd4e40a819ca56e9bb3",
+      "playerId": "p_65ffc0d6768b3819ca13af5a0",
+      "from": "Система",
+      "title": "Тест лист",
+      "body": "Це тестовий лист.",
+      "attachments": [],
+      "claimed": false,
+      "createdAt": "2026-02-28T18:06:55.411Z"
+    },
+    {
+      "id": "mail_6c24501ee85b8819ca5723819",
+      "playerId": "p_65ffc0d6768b3819ca13af5a0",
+      "from": "Система",
+      "title": "Тест лист",
+      "body": "Це тестовий лист.",
+      "attachments": [],
+      "claimed": false,
+      "createdAt": "2026-02-28T18:10:52.057Z"
+    },
+    {
+      "id": "mail_31875fde6a378819caaa62324",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "currency",
+          "value": {
+            "silver": 100000,
+            "gold": 100000,
+            "coupons": 100000
+          }
+        },
+        {
+          "kind": "exp",
+          "value": {
+            "amount": 4000000000
+          }
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_sasuke_curse_s",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_sakura_star_s",
+          "qty": 2
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_madara_6paths_sss",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_shisui_sss",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_obito_outer_sss",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "hero_token_itachi_reanimated_sss",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_scroll_basic",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_scroll_rare",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_scroll_elite",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_scroll_legend",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_glass_basic",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_glass_rare",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "itm_exp_glass_elite",
+          "qty": 999
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-01T18:25:40.644Z"
+    },
+    {
+      "id": "mail_30fa234d9f30f19cac4f8086",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "item",
+          "tplId": "box_jset_akatsuki",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_jset_prizrak",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_jset_king",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_jset_sixpaths",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_set_akatsuki",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_set_angel",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_set_ice",
+          "qty": 1
+        },
+        {
+          "kind": "item",
+          "tplId": "box_set_abyss",
+          "qty": 1
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-02T02:10:17.350Z"
+    },
+    {
+      "id": "mail_0d9e857f0e39719cb174ccf4",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "item",
+          "tplId": "gem_agility_12",
+          "qty": 6
+        },
+        {
+          "kind": "item",
+          "tplId": "gem_chakra_12",
+          "qty": 6
+        },
+        {
+          "kind": "item",
+          "tplId": "gem_sAttackRate_12",
+          "qty": 6
+        },
+        {
+          "kind": "item",
+          "tplId": "gem_critRate_12",
+          "qty": 6
+        },
+        {
+          "kind": "item",
+          "tplId": "gem_fury_12",
+          "qty": 6
+        },
+        {
+          "kind": "item",
+          "tplId": "gem_accuracyRate_12",
+          "qty": 6
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-03T02:09:07.828Z"
+    },
+    {
+      "id": "mail_e8630ff96bcd819cb175bb16",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "item",
+          "tplId": "gem_fury_12",
+          "qty": 6
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-03T02:10:08.790Z"
+    },
+    {
+      "id": "mail_b3ce9a66e99b2819cbba166d6",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "item",
+          "tplId": "stone_rainbow",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "tool_socket",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "mat_base",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "mat_akatsuki",
+          "qty": 999
+        },
+        {
+          "kind": "item",
+          "tplId": "stone_divine",
+          "qty": 1
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-05T01:34:02.966Z"
+    },
+    {
+      "id": "mail_412044ee31b2819cf62a7b9b",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "from": "Адміністратор",
+      "title": "Лист від адміністратора",
+      "body": "",
+      "attachments": [
+        {
+          "kind": "item",
+          "tplId": "itm_skill_scroll_huge",
+          "qty": 999
+        }
+      ],
+      "claimed": true,
+      "createdAt": "2026-03-16T10:21:45.243Z"
+    }
+  ]
+}

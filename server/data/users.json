@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "user_06365e4feeb7b19caaa4ddc1",
+      "login": "mydachek",
+      "passSalt": "d405e4179e497f8671789b3385a055f4",
+      "passHash": "e75e3133b1ae357ab2a963d7f560fb621311d4e61da4cf2eb30e519e9ffa3752",
+      "serverId": "Hokage S246",
+      "playerId": "player_90ef7ba7c7d16819caaa4fa40",
+      "isAdminHidden": true,
+      "createdAt": 1772389457345
+    }
+  ]
+}
